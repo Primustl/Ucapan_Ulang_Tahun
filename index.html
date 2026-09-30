@@ -312,7 +312,7 @@
       font-family: 'Georgia', serif;
       text-align: center;
     }
-    
+
     /* MODAL POPUP (NORMAL) */
     .modal-overlay {
       position: fixed;
@@ -361,7 +361,7 @@
       color: #c0392b;
       transform: scale(1.2);
     }
-    
+
     /* MODAL MEDIA FORMATTING */
     .modal-img {
       width: 100%;
@@ -392,33 +392,6 @@
       margin-bottom: 10px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
       background: #000;
-    }
-
-    /* TOMBOL KEMBALI KHUSUS VIDEO FULLSCREEN LAYAR */
-    .btn-close-fullscreen {
-      position: fixed;
-      top: 15px;
-      right: 15px;
-      background: rgba(255, 255, 255, 0.85);
-      color: #d63031;
-      border: none;
-      border-radius: 50%;
-      width: 42px;
-      height: 42px;
-      font-size: 22px;
-      font-weight: bold;
-      cursor: pointer;
-      z-index: 10000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      transition: background 0.2s, transform 0.2s;
-    }
-
-    .btn-close-fullscreen:hover {
-      background: #ffffff;
-      transform: scale(1.1);
     }
 
     .modal-caption {
@@ -510,7 +483,7 @@
     <!-- SEKSI 1: UCAPAN AWAL -->
     <div id="section1">
       <img src="gambar.png" alt="Foto Sayank" class="profile-img">
-      <h1>Happy Birthday, Sayank! ❤️️</h1>
+      <h1>Happy Birthday, Sayank! ❤</h1>
       <p>Ada kejutan kecil yang udah aku buat khusus buat kamu. Klik tombol di bawah ya!</p>
       <button class="btn-next" onclick="playBtnSound(); mulaiAplikasi();">Buka Kejutan ✨</button>
     </div>
@@ -577,7 +550,6 @@
 
   <!-- MODAL POPUP (FOTO & VIDEO) -->
   <div id="media-modal" class="modal-overlay hidden" onclick="tutupModal(event)">
-    <button class="btn-close-fullscreen" onclick="playBtnSound(); tutupModalDirect();" title="Kembali (Esc)">✕</button>
     <div class="modal-content" onclick="event.stopPropagation()">
       <span class="modal-close" onclick="playBtnSound(); tutupModalDirect();">&times;</span>
       
@@ -593,17 +565,17 @@
     /* ===================================================
        1. PENGATURAN MUSIK UTAMA & NOMOR WA
        =================================================== */
-    const sumberMusik = 'mp3'; 
-    const idVideoYoutube = 'dQw4w9WgXcQ'; 
+    const sumberMusik = 'mp3'; // Opsi: 'mp3' atau 'youtube'
+    const idVideoYoutube = 'dQw4w9WgXcQ'; // ID video YouTube jika sumberMusik = 'youtube'
 
     /* ===================================================
        2. DEKLARASI VARIABEL GLOBAL
        =================================================== */
     let lilinPadam = false;
     let audioContext, analyser, microphone, stream;
-    let currentSession = 1; 
-    let blowCounter = 0; 
-    let isTransitioning = false; 
+    let currentSession = 1; // Sesi tiupan 1, 2, atau 3
+    let blowCounter = 0; // Menghitung durasi tiupan konsisten
+    let isTransitioning = false; // Mencegah transisi ganda
     let playerYT = null;
 
     /* ===================================================
@@ -672,7 +644,6 @@
       for (let i = 0; i < bufferSize; i++) {
         output[i] = Math.random() * 2 - 1;
       }
-
       const noise = fxCtx.createBufferSource();
       noise.buffer = buffer;
       
@@ -713,11 +684,11 @@
       { src: "21.jpg", caption: "Momen kejutan kecil yang sukses 🎈" },
       { src: "22.jpg", caption: "Nyobain makanan viral bareng kamu 🍕" },
       { src: "23.jpg", caption: "Foto pakai baju senada 👗" },
-      { src: "24.jpg", caption: "Kenangan di tempat wisata idaman kamu 🏔️" },
+      { src: "24.jpg", caption: "Kenangan di tempat wisata idaman kamu 🏔" },
       { src: "25.jpg", caption: "Tertawa lepas pas nunggu makanan datang 😆" },
       { src: "26.jpg", caption: "Momen konyol yang selalu bikin ketawa 🤪" },
       { src: "27.jpg", caption: "Foto manis waktu kamu lagi fokus 🤍" },
-      { src: "28.jpg", caption: "Jalan-jalan malam keliling kota 🏙️️" },
+      { src: "28.jpg", caption: "Jalan-jalan malam keliling kota 🏙" },
       { src: "29.jpg", caption: "Momen perayaan kecil pencapaian kamu 🥂" },
       { src: "30.jpg", caption: "Foto terbaru kita yang paling manis 🥰" }
     ];
@@ -781,7 +752,7 @@
     /* ===================================================
        5. TEKS SURAT UCAPAN
        =================================================== */
-    const suratTeks = `Selamat ulang tahun ya, Sayank! ❤️️
+    const suratTeks = `Selamat ulang tahun ya, Sayank! ❤
 
 Di hari yang spesial ini, aku cuma mau berdoa supaya kamu selalu diberikan kesehatan, kebahagiaan, dan kemudahan dalam setiap langkah kamu.
 
@@ -877,7 +848,7 @@ I love you so much! 💕`;
         const cardHtml = `
           <div class="polaroid-card" style="transform: rotate(${randomRotate}deg);" onclick="playMediaSound(); bukaModalMedia('video', '${item.src}', '${item.caption.replace(/'/g, "\\'")}')">
             <video src="${item.src}" class="polaroid-video-thumb" muted preload="metadata"></video>
-            <div class="polaroid-caption">▶️ ${item.caption}</div>
+            <div class="polaroid-caption">▶️️ ${item.caption}</div>
           </div>
         `;
         container.innerHTML += cardHtml;
@@ -893,6 +864,7 @@ I love you so much! 💕`;
         jedaMusik(); // Menjedakan lagu latar saat video diputar
         bodyModal.innerHTML = `<video src="${src}" class="modal-video" controls autoplay playsinline></video>`;
       }
+
       document.getElementById("modal-caption").innerText = caption;
       document.getElementById("media-modal").classList.remove("hidden");
 
@@ -1080,6 +1052,7 @@ I love you so much! 💕`;
       let index = 0;
       const targetElement = document.getElementById("typed-text");
       const letterBox = document.getElementById("letter-container");
+
       targetElement.innerHTML = "";
 
       function ketik() {
@@ -1093,6 +1066,7 @@ I love you so much! 💕`;
           letterBox.scrollTop = letterBox.scrollHeight;
         }
       }
+
       ketik();
     }
 
