@@ -14,7 +14,7 @@
       padding: 0;
       font-family: 'Georgia', 'Times New Roman', serif;
     }
-
+    
     /* BACKGROUND CERAH & CERIA */
     body {
       background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 40%, #fa709a 70%, #fee140 100%);
@@ -28,11 +28,35 @@
       overflow-x: hidden;
       position: relative;
     }
-
     @keyframes gradientBG {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
+    }
+
+    /* TOMBOL KONTROL MUSIK MELAYANG */
+    .music-toggle-btn {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      z-index: 9999;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+      width: 42px;
+      height: 42px;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      backdrop-filter: blur(5px);
+      transition: transform 0.2s, background 0.2s;
+    }
+    .music-toggle-btn:hover {
+      transform: scale(1.1);
+      background: #ffffff;
     }
 
     /* ANIMASI KILAUAN & HATI CERAH */
@@ -47,14 +71,13 @@
       animation: fall linear infinite;
       text-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
     }
-
     @keyframes fall {
       to {
         transform: translateY(105vh) rotate(360deg);
       }
     }
 
-    /* CARD GLASSMORPHISM */
+    /* CARD GLASSMORPHISM & TRANSISI SMOOTH */
     .card {
       background: rgba(255, 255, 255, 0.45);
       backdrop-filter: blur(25px);
@@ -71,7 +94,6 @@
       z-index: 2;
       overflow: hidden;
     }
-
     .card::before {
       content: '';
       position: absolute;
@@ -83,11 +105,17 @@
       transform: skewX(-25deg);
       pointer-events: none;
     }
-
+    
+    .section-transition {
+      animation: fadeInSection 0.6s ease-in-out forwards;
+    }
+    @keyframes fadeInSection {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
     .hidden {
       display: none !important;
     }
-
     .profile-img {
       width: 140px;
       height: 140px;
@@ -97,7 +125,6 @@
       margin-bottom: 20px;
       box-shadow: 0 10px 25px rgba(214, 48, 49, 0.25);
     }
-
     h1 {
       color: #d63031;
       font-size: 1.8rem;
@@ -106,7 +133,6 @@
       letter-spacing: 0.5px;
       text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
     }
-
     p {
       color: #2d3436;
       font-size: 0.95rem;
@@ -116,6 +142,30 @@
       font-weight: 500;
     }
 
+    /* COUNTDOWN TIMER STYLING */
+    .countdown-box {
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px dashed #ff7675;
+      border-radius: 16px;
+      padding: 15px;
+      margin: 15px 0;
+      display: flex;
+      justify-content: space-around;
+    }
+    .time-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .time-number {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #d63031;
+    }
+    .time-label {
+      font-size: 0.75rem;
+      color: #2d3436;
+    }
     .instruction-box {
       background: rgba(255, 255, 255, 0.6);
       border: 1px dashed #ff7675;
@@ -125,7 +175,6 @@
       text-align: left;
       backdrop-filter: blur(5px);
     }
-
     .instruction-box ol {
       padding-left: 20px;
       color: #2d3436;
@@ -133,7 +182,6 @@
       line-height: 1.6;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-
     .btn-next {
       background: linear-gradient(135deg, #ff4757, #ff6b81);
       color: #fff;
@@ -152,13 +200,11 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       letter-spacing: 0.5px;
     }
-
     .btn-next:hover {
       background: linear-gradient(135deg, #ff6b81, #ff4757);
       transform: translateY(-2px);
       box-shadow: 0 8px 25px rgba(255, 71, 87, 0.5);
     }
-
     .btn-tab {
       flex: 1;
       padding: 10px 15px;
@@ -172,38 +218,33 @@
       transition: all 0.3s ease;
       font-family: 'Segoe UI', sans-serif;
     }
-
     .btn-tab.active {
       background: linear-gradient(135deg, #ff4757, #ff6b81);
       color: #fff;
       box-shadow: 0 4px 15px rgba(255, 71, 87, 0.3);
     }
-
     .tab-container {
       display: flex;
       gap: 10px;
       margin-bottom: 15px;
     }
-
     .btn-wa {
       background: linear-gradient(135deg, #2ed573, #26de81);
       box-shadow: 0 6px 20px rgba(46, 213, 115, 0.35);
     }
-
     .btn-wa:hover {
       background: linear-gradient(135deg, #26de81, #2ed573);
       box-shadow: 0 8px 25px rgba(46, 213, 115, 0.5);
     }
 
-    /* KUE & LILIN */
+    /* KUE & LILIN SUNGGUHAN (REALISTIS) */
     .cake-container {
       position: relative;
-      width: 150px;
-      height: 140px;
+      width: 160px;
+      height: 150px;
       margin: 20px auto;
       cursor: pointer;
     }
-
     .cake {
       position: absolute;
       bottom: 0;
@@ -214,7 +255,6 @@
       box-shadow: inset 0 10px 0 #fd79a8, 0 8px 20px rgba(0, 0, 0, 0.15);
       border: 1px solid rgba(255, 255, 255, 0.6);
     }
-
     .cake::before {
       content: '';
       position: absolute;
@@ -225,45 +265,108 @@
       background: #fd79a8;
       border-radius: 10px 10px 0 0;
     }
-
     .candle {
       position: absolute;
       top: 15px;
       left: 50%;
       transform: translateX(-50%);
       width: 12px;
-      height: 35px;
+      height: 38px;
       background: repeating-linear-gradient(45deg, #ffeaa7, #ffeaa7 5px, #fdcb6e 5px, #fdcb6e 10px);
       border-radius: 3px 3px 0 0;
       box-shadow: 0 0 8px rgba(253, 203, 110, 0.8);
     }
-
-    .flame {
+    /* Sumbu Lilin */
+    .candle::before {
+      content: '';
       position: absolute;
-      top: -18px;
+      top: -6px;
       left: 50%;
       transform: translateX(-50%);
-      width: 14px;
-      height: 20px;
-      background: #ff7675;
-      border-radius: 50% 50% 20% 20%;
-      box-shadow: 0 0 12px #ff7675, 0 0 25px #fdcb6e;
-      animation: flicker 0.6s infinite alternate;
+      width: 2px;
+      height: 6px;
+      background: #2d3436;
+    }
+
+    /* API LILIN REALISTIS & MULTI-LAYER */
+    .flame-wrapper {
+      position: absolute;
+      top: -28px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 30px;
+      pointer-events: none;
       transition: all 0.3s ease;
     }
+    .flame-glow {
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      width: 30px;
+      height: 35px;
+      background: radial-gradient(circle, rgba(255, 170, 0, 0.6) 0%, rgba(255, 80, 0, 0) 70%);
+      border-radius: 50%;
+      animation: pulseGlow 0.8s infinite alternate;
+    }
+    .flame-outer {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 16px;
+      height: 26px;
+      background: linear-gradient(to top, #ff3300 0%, #ff9900 60%, #ffff66 100%);
+      border-radius: 50% 50% 20% 20% / 60% 60% 40% 40%;
+      box-shadow: 0 0 10px #ff6600, 0 0 20px #ffcc00;
+      animation: realFlame 0.15s infinite alternate ease-in-out;
+    }
+    .flame-inner {
+      position: absolute;
+      bottom: 2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 8px;
+      height: 14px;
+      background: linear-gradient(to top, #0066ff 0%, #ffffff 70%);
+      border-radius: 50% 50% 30% 30%;
+      opacity: 0.9;
+    }
 
+    @keyframes realFlame {
+      0% { transform: translateX(-50%) scale(1) rotate(-1deg); }
+      100% { transform: translateX(-50%) scale(1.08, 0.95) rotate(2deg); }
+    }
+    @keyframes pulseGlow {
+      0% { opacity: 0.6; transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1.1); }
+    }
+
+    /* ANIMASI HEMBUSAN 1: MAU MATI / BERGOYANG REDUP */
     .flame-shake-1 {
-      transform: translateX(-70%) scale(1.1) rotate(-20deg) !important;
+      transform: translateX(-65%) rotate(-25deg) scale(0.85) !important;
+      opacity: 0.75;
+    }
+    .flame-shake-1 .flame-outer {
+      animation: flickerWeak 0.1s infinite alternate;
     }
 
+    /* ANIMASI HEMBUSAN 2: SANGAT MAU MATI / BERGOYANG KENCANG & REDUP */
     .flame-shake-2 {
-      transform: translateX(-30%) scale(1.2) rotate(25deg) !important;
-      opacity: 0.6;
+      transform: translateX(-35%) rotate(35deg) scale(0.5) !important;
+      opacity: 0.45;
+    }
+    .flame-shake-2 .flame-outer {
+      animation: flickerDying 0.08s infinite alternate;
     }
 
-    @keyframes flicker {
-      0% { transform: translateX(-50%) scale(1); opacity: 0.9; }
-      100% { transform: translateX(-50%) scale(1.15); opacity: 1; }
+    @keyframes flickerWeak {
+      0% { opacity: 0.5; }
+      100% { opacity: 0.9; }
+    }
+    @keyframes flickerDying {
+      0% { opacity: 0.2; transform: translateX(-50%) scaleY(0.6); }
+      100% { opacity: 0.6; transform: translateX(-50%) scaleY(1.2); }
     }
 
     /* GALERI 1 KOLOM KE BAWAH */
@@ -277,7 +380,6 @@
       overflow-y: auto;
       padding: 10px;
     }
-
     .polaroid-card {
       background: rgba(255, 255, 255, 0.85);
       padding: 12px 12px 16px 12px;
@@ -289,13 +391,11 @@
       max-width: 320px;       
       cursor: pointer;
     }
-
     .polaroid-card:hover {
       transform: scale(1.03) !important;
       z-index: 5;
       box-shadow: 0 12px 25px rgba(255, 71, 87, 0.25);
     }
-
     .polaroid-img, .polaroid-video-thumb {
       width: 100%;
       height: 200px;          
@@ -303,7 +403,6 @@
       border-radius: 10px;
       margin-bottom: 10px;
     }
-
     .polaroid-caption {
       font-size: 0.9rem;      
       color: #2d3436;
@@ -313,14 +412,14 @@
       text-align: center;
     }
 
-    /* MODAL POPUP (NORMAL) */
+    /* MODAL POPUP & FITUR FULL FOTO */
     .modal-overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(0, 0, 0, 0.85);
+      background: rgba(0, 0, 0, 0.88);
       backdrop-filter: blur(8px);
       z-index: 999;
       display: flex;
@@ -329,7 +428,6 @@
       padding: 20px;
       animation: fadeIn 0.3s ease;
     }
-
     .modal-content {
       background: rgba(255, 255, 255, 0.95);
       border: 1px solid rgba(255, 255, 255, 0.9);
@@ -341,8 +439,8 @@
       position: relative;
       box-shadow: 0 20px 40px rgba(0,0,0,0.25);
       animation: zoomIn 0.3s ease;
+      transition: all 0.3s ease;
     }
-
     .modal-close {
       position: absolute;
       top: 6px;
@@ -356,13 +454,10 @@
       padding: 4px;
       transition: transform 0.2s;
     }
-
     .modal-close:hover {
       color: #c0392b;
       transform: scale(1.2);
     }
-
-    /* MODAL MEDIA FORMATTING */
     .modal-img {
       width: 100%;
       max-height: 350px;
@@ -373,8 +468,13 @@
       cursor: pointer;
       transition: transform 0.2s ease;
     }
-
-    /* KHUSUS VIDEO MODAL (FULL SCREEN MENGUKUTI UKURAN ASLI) */
+    
+    .modal-img.fullscreen-view {
+      max-height: 80vh;
+      object-fit: contain;
+      box-shadow: none;
+    }
+    
     .video-container-wrapper {
       position: relative;
       width: 100%;
@@ -383,17 +483,15 @@
       align-items: center;
       flex-direction: column;
     }
-
     .modal-video {
       width: 100%;
       max-height: 70vh;
-      object-fit: contain; /* Sesuai rasio & ukuran asli, tidak terdistorsi/membesar berlebihan */
+      object-fit: contain;
       border-radius: 14px;
       margin-bottom: 10px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
       background: #000;
     }
-
     .modal-caption {
       font-size: 1rem;
       color: #2d3436;
@@ -402,7 +500,6 @@
       font-family: 'Georgia', serif;
       line-height: 1.4;
     }
-
     .btn-kembali {
       background: #636e72;
       border: 1px solid rgba(255, 255, 255, 0.4);
@@ -410,16 +507,13 @@
       padding: 10px 20px;
       font-size: 0.85rem;
     }
-
     .btn-kembali:hover {
       background: #2d3436;
     }
-
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
-
     @keyframes zoomIn {
       from { transform: scale(0.85); }
       to { transform: scale(1); }
@@ -444,7 +538,6 @@
       font-family: 'Georgia', serif;
       scroll-behavior: smooth;
     }
-
     .cursor {
       display: inline-block;
       width: 2px;
@@ -453,12 +546,10 @@
       animation: blink 0.7s infinite;
       vertical-align: middle;
     }
-
     @keyframes blink {
       0%, 100% { opacity: 1; }
       50% { opacity: 0; }
     }
-
     .btn-group {
       display: flex;
       flex-direction: column;
@@ -468,10 +559,13 @@
   </style>
 </head>
 <body>
-
-  <!-- AUDIO PLAYER LOKAL (MUSIK UTAMA) -->
+  <!-- TOMBOL KONTROL MUSIK MELAYANG -->
+  <button id="music-btn" class="music-toggle-btn" onclick="toggleMusik()" title="Putar/Matikan Musik">🎵</button>
+  
+  <!-- AUDIO PLAYER LOKAL -->
   <audio id="bg-music" loop preload="auto">
-    <source src="videoplayback.weba" type="audio/mpeg">
+    <source src="musik.mp3" type="audio/mpeg">
+    <source src="videoplayback.weba" type="audio/webm">
   </audio>
 
   <!-- YOUTUBE PLAYER CONTAINER -->
@@ -480,12 +574,20 @@
   </div>
 
   <div class="card">
-    <!-- SEKSI 1: UCAPAN AWAL -->
-    <div id="section1">
+    <!-- SEKSI 1: UCAPAN AWAL / COUNTDOWN -->
+    <div id="section1" class="section-transition">
       <img src="gambar.png" alt="Foto Sayank" class="profile-img">
       <h1>Happy Birthday, Sayank! ❤</h1>
-      <p>Ada kejutan kecil yang udah aku buat khusus buat kamu. Klik tombol di bawah ya!</p>
-      <button class="btn-next" onclick="playBtnSound(); mulaiAplikasi();">Buka Kejutan ✨</button>
+      
+      <!-- FITUR COUNTDOWN TIMER -->
+      <div id="countdown-container" class="countdown-box hidden">
+        <div class="time-item"><span id="cd-days" class="time-number">00</span><span class="time-label">Hari</span></div>
+        <div class="time-item"><span id="cd-hours" class="time-number">00</span><span class="time-label">Jam</span></div>
+        <div class="time-item"><span id="cd-minutes" class="time-number">00</span><span class="time-label">Menit</span></div>
+        <div class="time-item"><span id="cd-seconds" class="time-number">00</span><span class="time-label">Detik</span></div>
+      </div>
+      <p id="section1-desc">Ada kejutan kecil yang udah aku buat khusus buat kamu. Klik tombol di bawah ya!</p>
+      <button id="btn-start" class="btn-next" onclick="playBtnSound(); mulaiAplikasi();">Buka Kejutan ✨</button>
     </div>
 
     <!-- SEKSI 2: TIUP LILIN -->
@@ -495,19 +597,23 @@
       <div class="instruction-box">
         <ol>
           <li><b>Berdoa dulu</b> di dalam hati... 🙏</li>
-          <li><b>Dekatkan bibir persis di depan mikrofon HP/Laptop</b>.</li>
-          <li><b>Hembuskan tiupan kencang</b> per sesi sampai lilin padam! 🌬️</li>
+          <li><b>Hembuskan tiupan 3 kali</b> ke mikrofon HP/Laptop, ATAU <b>tap/klik kue 3 kali</b>! 🌬️👆</li>
+          <li>Setiap hembusan/tap akan membuat lilin makin redup hingga meletus! 🎆</li>
         </ol>
       </div>
 
-      <div class="cake-container" onclick="manualClickPadam()">
+      <div class="cake-container" onclick="prosesHembusanAtauTap()">
         <div class="candle">
-          <div id="flame" class="flame"></div>
+          <div id="flame" class="flame-wrapper">
+            <div class="flame-glow"></div>
+            <div class="flame-outer"></div>
+            <div class="flame-inner"></div>
+          </div>
         </div>
         <div class="cake"></div>
       </div>
 
-      <p id="wish-status" style="font-style: italic; color: #d63031; font-weight: bold; font-size: 0.9rem; margin-bottom: 20px; font-family: 'Segoe UI', sans-serif;">
+      <p id="wish-status" style="font-style: italic; color: #d63031; font-weight: bold; font-size: 0.95rem; margin-bottom: 20px; font-family: 'Segoe UI', sans-serif;">
         ⏳ Menyiapkan mikrofon...
       </p>
 
@@ -519,12 +625,12 @@
       <h1>Galeri Kenangan Kita 📸</h1>
       <p>Pilih kategori lalu klik salah satu untuk melihat lebih jelas!</p>
       
-      <!-- TOMBOL DUA ROOM BERDAMPINGAN -->
+      <!-- TOMBOL TAB KATEGORI -->
       <div class="tab-container">
         <button id="tab-foto" class="btn-tab active" onclick="playBtnSound(); tampilKategori('foto');">📷 Foto Kenangan</button>
         <button id="tab-video" class="btn-tab" onclick="playBtnSound(); tampilKategori('video');">🎥 Video Kenangan</button>
       </div>
-
+      
       <!-- Container Galeri (1 Kolom Ke Bawah) -->
       <div class="gallery-grid" id="gallery-container"></div>
       
@@ -547,10 +653,10 @@
       </div>
     </div>
   </div>
-
+  
   <!-- MODAL POPUP (FOTO & VIDEO) -->
   <div id="media-modal" class="modal-overlay hidden" onclick="tutupModal(event)">
-    <div class="modal-content" onclick="event.stopPropagation()">
+    <div class="modal-content" id="modal-card-content" onclick="event.stopPropagation()">
       <span class="modal-close" onclick="playBtnSound(); tutupModalDirect();">&times;</span>
       
       <!-- ELEMEN FOTO / VIDEO DITAMPILKAN DI SINI -->
@@ -563,23 +669,24 @@
 
   <script>
     /* ===================================================
-       1. PENGATURAN MUSIK UTAMA & NOMOR WA
+       1. PENGATURAN KONFIGURASI MUSIK
        =================================================== */
-    const sumberMusik = 'mp3'; // Opsi: 'mp3' atau 'youtube'
-    const idVideoYoutube = 'dQw4w9WgXcQ'; // ID video YouTube jika sumberMusik = 'youtube'
+    const sumberMusik = 'mp3'; 
+    const idVideoYoutube = 'dQw4w9WgXcQ'; 
+    let isPlaying = false;
 
     /* ===================================================
        2. DEKLARASI VARIABEL GLOBAL
        =================================================== */
     let lilinPadam = false;
     let audioContext, analyser, microphone, stream;
-    let currentSession = 1; // Sesi tiupan 1, 2, atau 3
-    let blowCounter = 0; // Menghitung durasi tiupan konsisten
-    let isTransitioning = false; // Mencegah transisi ganda
+    let currentSession = 1; 
+    let blowCounter = 0; 
+    let isTransitioning = false; 
     let playerYT = null;
 
     /* ===================================================
-       SINTESIS EFEK SUARA SOUND FX
+       SINTESIS EFEK SUARA SOUND FX (WEBAUDIO API)
        =================================================== */
     const fxCtx = new (window.AudioContext || window.webkitAudioContext)();
 
@@ -621,24 +728,27 @@
       osc.stop(fxCtx.currentTime + 0.12);
     }
 
+    /* EFEK SUARA MELETUS / KEMBANG API */
     function playFireworkSound() {
       if (fxCtx.state === 'suspended') fxCtx.resume();
       
+      // Ledakan Bas (Pop)
       const osc = fxCtx.createOscillator();
       const gain = fxCtx.createGain();
       osc.type = 'triangle';
-      osc.frequency.setValueAtTime(150, fxCtx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(30, fxCtx.currentTime + 0.25);
+      osc.frequency.setValueAtTime(220, fxCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(30, fxCtx.currentTime + 0.3);
       
-      gain.gain.setValueAtTime(0.8, fxCtx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.01, fxCtx.currentTime + 0.25);
+      gain.gain.setValueAtTime(0.9, fxCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, fxCtx.currentTime + 0.3);
       
       osc.connect(gain);
       gain.connect(fxCtx.destination);
       osc.start();
-      osc.stop(fxCtx.currentTime + 0.25);
+      osc.stop(fxCtx.currentTime + 0.3);
 
-      const bufferSize = fxCtx.sampleRate * 0.4;
+      // Desisan Kembang Api (Noise)
+      const bufferSize = fxCtx.sampleRate * 0.5;
       const buffer = fxCtx.createBuffer(1, bufferSize, fxCtx.sampleRate);
       const output = buffer.getChannelData(0);
       for (let i = 0; i < bufferSize; i++) {
@@ -648,12 +758,67 @@
       noise.buffer = buffer;
       
       const noiseGain = fxCtx.createGain();
-      noiseGain.gain.setValueAtTime(0.5, fxCtx.currentTime);
-      noiseGain.gain.exponentialRampToValueAtTime(0.01, fxCtx.currentTime + 0.4);
+      noiseGain.gain.setValueAtTime(0.6, fxCtx.currentTime);
+      noiseGain.gain.exponentialRampToValueAtTime(0.01, fxCtx.currentTime + 0.5);
       
       noise.connect(noiseGain);
       noiseGain.connect(fxCtx.destination);
+      noise.start();
+    }
+
+    /* EFEK SUARA TEPUK TANGAN & SORAK HOREEE (CROWD CHEERING) */
+    function playCheeringSound() {
+      if (fxCtx.state === 'suspended') fxCtx.resume();
+
+      // Multi-Oscillator untuk Mensimulasikan Sorakan Suara Manusia (Horeee!)
+      const pitchPola = [260, 320, 390, 520, 640];
+      pitchPola.forEach((freq, idx) => {
+        const osc = fxCtx.createOscillator();
+        const gain = fxCtx.createGain();
+        osc.type = idx % 2 === 0 ? 'sawtooth' : 'triangle';
+        
+        const now = fxCtx.currentTime + (idx * 0.05);
+        osc.frequency.setValueAtTime(freq, now);
+        osc.frequency.linearRampToValueAtTime(freq * 1.5, now + 0.3); // Nada naik "Ho-"
+        osc.frequency.linearRampToValueAtTime(freq * 1.2, now + 1.2); // Pitch "-reee!"
+
+        gain.gain.setValueAtTime(0.01, now);
+        gain.gain.linearRampToValueAtTime(0.25, now + 0.2);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 1.8);
+
+        osc.connect(gain);
+        gain.connect(fxCtx.destination);
+        osc.start(now);
+        osc.stop(now + 1.8);
+      });
+
+      // Noise Tepuk Tangan Meriah (Clapping Crowd)
+      const duration = 2.2;
+      const bufferSize = fxCtx.sampleRate * duration;
+      const buffer = fxCtx.createBuffer(1, bufferSize, fxCtx.sampleRate);
+      const output = buffer.getChannelData(0);
       
+      for (let i = 0; i < bufferSize; i++) {
+        output[i] = (Math.random() * 2 - 1);
+      }
+      
+      const noise = fxCtx.createBufferSource();
+      noise.buffer = buffer;
+
+      const filter = fxCtx.createBiquadFilter();
+      filter.type = 'bandpass';
+      filter.frequency.value = 1200;
+      filter.Q.value = 1.0;
+
+      const noiseGain = fxCtx.createGain();
+      noiseGain.gain.setValueAtTime(0.01, fxCtx.currentTime);
+      noiseGain.gain.linearRampToValueAtTime(0.5, fxCtx.currentTime + 0.3);
+      noiseGain.gain.exponentialRampToValueAtTime(0.01, fxCtx.currentTime + duration);
+
+      noise.connect(filter);
+      filter.connect(noiseGain);
+      noiseGain.connect(fxCtx.destination);
+
       noise.start();
     }
 
@@ -722,7 +887,7 @@
       { src: "video26.mp4", caption: "Momen Unboxing kado spesial 📦" },
       { src: "video27.mp4", caption: "Suasana romantis di restoran 🕯️" },
       { src: "video28.mp4", caption: "Video random waktu nunggu angkutan 🚌" },
-      { src: "video29.mp4", caption: "Keseruan kita saat jalan-jalan 🗺️" },
+      { src: "video29.mp4", caption: "Keseruan kita saat jalan-jalan 🗺" },
       { src: "video30.mp4", caption: "Pesan terindah untuk hari bahagiamu 💖" }
     ];
 
@@ -761,30 +926,85 @@ Terima kasih ya sudah hadir dan jadi bagian terindah dalam hidup aku. Tetap jadi
 I love you so much! 💕`;
 
     /* ===================================================
-       6. FUNGSI UTAMA APLIKASI
+       6. LOGIKA COUNTDOWN TIMER & APLIKASI
        =================================================== */
+    function initCountdown() {
+      const targetTime = new Date().getTime() + 5000;
+      document.getElementById("countdown-container").classList.remove("hidden");
+      document.getElementById("section1-desc").innerText = "Hitung mundur menuju hari ulang tahunmu! Tunggu hingga waktu habis ya...";
+      document.getElementById("btn-start").classList.add("hidden");
+
+      const timerInterval = setInterval(() => {
+        const currentTime = new Date().getTime();
+        const diff = targetTime - currentTime;
+
+        if (diff <= 0) {
+          clearInterval(timerInterval);
+          document.getElementById("countdown-container").classList.add("hidden");
+          document.getElementById("section1-desc").innerText = "Hari yang ditunggu tiba! Ada kejutan kecil yang udah aku buat khusus buat kamu.";
+          document.getElementById("btn-start").classList.remove("hidden");
+        } else {
+          const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+          document.getElementById("cd-days").innerText = days < 10 ? '0' + days : days;
+          document.getElementById("cd-hours").innerText = hours < 10 ? '0' + hours : hours;
+          document.getElementById("cd-minutes").innerText = minutes < 10 ? '0' + minutes : minutes;
+          document.getElementById("cd-seconds").innerText = seconds < 10 ? '0' + seconds : seconds;
+        }
+      }, 1000);
+    }
+    initCountdown();
+
     function mainkanMusik() {
+      const musicBtn = document.getElementById("music-btn");
       if (sumberMusik === 'mp3') {
         const music = document.getElementById("bg-music");
-        music.play().catch(e => console.log("Gagal memutar audio: ", e));
+        music.play().then(() => {
+          isPlaying = true;
+          musicBtn.innerText = "🎵";
+        }).catch(e => console.log("Gagal memutar audio: ", e));
       } else if (sumberMusik === 'youtube' && playerYT) {
         playerYT.playVideo();
+        isPlaying = true;
+        musicBtn.innerText = "🎵";
       }
     }
 
     function jedaMusik() {
+      const musicBtn = document.getElementById("music-btn");
       if (sumberMusik === 'mp3') {
         const music = document.getElementById("bg-music");
         music.pause();
       } else if (sumberMusik === 'youtube' && playerYT) {
         playerYT.pauseVideo();
       }
+      isPlaying = false;
+      musicBtn.innerText = "🔇";
+    }
+
+    function toggleMusik() {
+      if (isPlaying) {
+        jedaMusik();
+      } else {
+        mainkanMusik();
+      }
+    }
+
+    function gantiSeksi(idSeksiSelesai, idSeksiMulai) {
+      const secSelesai = document.getElementById(idSeksiSelesai);
+      const secMulai = document.getElementById(idSeksiMulai);
+      
+      secSelesai.classList.add("hidden");
+      secMulai.classList.remove("hidden");
+      secMulai.classList.add("section-transition");
     }
 
     function mulaiAplikasi() {
       mainkanMusik();
-      document.getElementById("section1").classList.add("hidden");
-      document.getElementById("section2").classList.remove("hidden");
+      gantiSeksi("section1", "section2");
       mulaiOtomatisMikrofon();
     }
 
@@ -798,20 +1018,18 @@ I love you so much! 💕`;
         heart.style.animationDuration = Math.random() * 3 + 2 + 's';
         heart.style.fontSize = Math.random() * 10 + 14 + 'px';
         document.body.appendChild(heart);
-
         setTimeout(() => { heart.remove(); }, 5000);
       }, 300);
     }
     buatHatiBerjatuhan();
 
     /* ===================================================
-       7. LOGIKA GALERI & KATEGORI (FOTO & VIDEO)
+       7. LOGIKA RENDERING GALERI & MODAL MEDIA
        =================================================== */
     function tampilKategori(kategori) {
       kategoriAktif = kategori;
       const tabFoto = document.getElementById("tab-foto");
       const tabVideo = document.getElementById("tab-video");
-
       if (kategori === 'foto') {
         tabFoto.classList.add("active");
         tabVideo.classList.remove("active");
@@ -825,51 +1043,48 @@ I love you so much! 💕`;
 
     function muatGaleriFoto() {
       const container = document.getElementById("gallery-container");
-      container.innerHTML = "";
-
-      daftarFoto.forEach((item, index) => {
-        const randomRotate = (Math.random() * 4 - 2).toFixed(1); 
-        const cardHtml = `
+      const htmlContent = daftarFoto.map((item, index) => {
+        const randomRotate = (Math.random() * 4 - 2).toFixed(1);
+        return `
           <div class="polaroid-card" style="transform: rotate(${randomRotate}deg);" onclick="playMediaSound(); bukaModalMedia('foto', '${item.src}', '${item.caption.replace(/'/g, "\\'")}')">
             <img src="${item.src}" alt="Momen ${index + 1}" class="polaroid-img" loading="lazy">
             <div class="polaroid-caption">${item.caption}</div>
           </div>
         `;
-        container.innerHTML += cardHtml;
-      });
+      }).join('');
+      container.innerHTML = htmlContent;
     }
 
     function muatGaleriVideo() {
       const container = document.getElementById("gallery-container");
-      container.innerHTML = "";
-
-      daftarVideo.forEach((item, index) => {
-        const randomRotate = (Math.random() * 4 - 2).toFixed(1); 
-        const cardHtml = `
+      const htmlContent = daftarVideo.map((item, index) => {
+        const randomRotate = (Math.random() * 4 - 2).toFixed(1);
+        return `
           <div class="polaroid-card" style="transform: rotate(${randomRotate}deg);" onclick="playMediaSound(); bukaModalMedia('video', '${item.src}', '${item.caption.replace(/'/g, "\\'")}')">
             <video src="${item.src}" class="polaroid-video-thumb" muted preload="metadata"></video>
-            <div class="polaroid-caption">▶️️ ${item.caption}</div>
+            <div class="polaroid-caption">▶️ ${item.caption}</div>
           </div>
         `;
-        container.innerHTML += cardHtml;
-      });
+      }).join('');
+      container.innerHTML = htmlContent;
     }
 
-    /* SISTEM MODAL MEDIA (MEMAKAI UKURAN VIDEO ASLI & SUPPORT BACK KEMBALI) */
     function bukaModalMedia(tipe, src, caption) {
       const bodyModal = document.getElementById("modal-body");
       if (tipe === 'foto') {
-        bodyModal.innerHTML = `<img src="${src}" class="modal-img">`;
+        bodyModal.innerHTML = `<img src="${src}" class="modal-img" id="modal-img-elem" title="Tekan foto untuk memperbesar/layar penuh" onclick="toggleFullFoto(this)">`;
       } else {
-        jedaMusik(); // Menjedakan lagu latar saat video diputar
+        jedaMusik(); 
         bodyModal.innerHTML = `<video src="${src}" class="modal-video" controls autoplay playsinline></video>`;
       }
-
       document.getElementById("modal-caption").innerText = caption;
       document.getElementById("media-modal").classList.remove("hidden");
-
-      // Push state ke browser history agar saat dipencet tombol BACK di HP, modal otomatis tertutup
       history.pushState({ modalOpen: true }, "");
+    }
+
+    function toggleFullFoto(imgElem) {
+      playMediaSound();
+      imgElem.classList.toggle("fullscreen-view");
     }
 
     function tutupModal(e) {
@@ -884,16 +1099,14 @@ I love you so much! 💕`;
       if (!modal.classList.contains("hidden")) {
         modal.classList.add("hidden");
         document.getElementById("modal-body").innerHTML = ""; 
-        mainkanMusik(); // Memutar kembali lagu latar
+        mainkanMusik(); 
         
-        // Hapus state history jika ditutup lewat tombol agar navigasi HP tetap rapi
         if (history.state && history.state.modalOpen) {
           history.back();
         }
       }
     }
 
-    /* HANDLE NAVIGASI TOMBOL ESC (LAPTOP) & TOMBOL BACK (HP) */
     window.addEventListener("popstate", function(e) {
       const modal = document.getElementById("media-modal");
       if (!modal.classList.contains("hidden")) {
@@ -910,32 +1123,50 @@ I love you so much! 💕`;
     });
 
     /* ===================================================
-       8. LOGIKA TIUP LILIN & SENSOR MIKROFON
+       8. LOGIKA TIUP LILIN (3 SESI: BERGOYANG -> HAMPIR MATI -> MELETUS & HORE)
        =================================================== */
     function padamkanLilin() {
       if (!lilinPadam) {
         lilinPadam = true;
         document.getElementById("flame").classList.add("hidden");
         document.getElementById("wish-status").style.color = "#00b894";
-        document.getElementById("wish-status").innerHTML = "🎉 MELETUS & PADAM! Semoga semua keinginanmu terkabul ya Sayank! ❤️";
+        document.getElementById("wish-status").innerHTML = "🎆 <b>HOREEE! LILIN MELETUS & PADAM!</b> 🎉<br>Semua doa & harapanmu semoga terkabul ya Sayank! ❤️";
         
         if (stream) {
           stream.getTracks().forEach(track => track.stop());
         }
 
+        // Suara Meletus + Sorakan Horeee & Tepuk Tangan
         playFireworkSound();
+        playCheeringSound();
 
+        // Pesta Konfeti Meriah
         confetti({
-          particleCount: 150,
-          spread: 90,
+          particleCount: 180,
+          spread: 100,
           origin: { y: 0.6 }
         });
+
+        setTimeout(() => {
+          confetti({
+            particleCount: 100,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0 }
+          });
+          confetti({
+            particleCount: 100,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 }
+          });
+        }, 300);
 
         document.getElementById("btn-lanjut-2").classList.remove("hidden");
       }
     }
 
-    function manualClickPadam() {
+    function prosesHembusanAtauTap() {
       if (lilinPadam || isTransitioning) return;
       playMediaSound();
       
@@ -944,12 +1175,12 @@ I love you so much! 💕`;
 
       if (currentSession === 1) {
         currentSession = 2;
-        flame.className = "flame flame-shake-1";
-        status.innerHTML = "🌬️ SESI 1 SELESAI! Sekarang tiup kencang lagi untuk SESI 2!";
+        flame.className = "flame-wrapper flame-shake-1";
+        status.innerHTML = "🌬️ <b>HEMBUSAN 1 / TAP 1 BERHASIL!</b><br>Api bergoyang & mulai redup! Hembus/tap sekali lagi!";
       } else if (currentSession === 2) {
         currentSession = 3;
-        flame.className = "flame flame-shake-2";
-        status.innerHTML = "🔥 SESI 2 SELESAI! Sekali lagi tiup kencang untuk SESI TERAKHIR!";
+        flame.className = "flame-wrapper flame-shake-2";
+        status.innerHTML = "🔥 <b>HEMBUSAN 2 / TAP 2 BERHASIL!</b><br>Api hampir mati! Hembus/tap kencang 1x lagi sampai meletus!";
       } else if (currentSession === 3) {
         padamkanLilin();
       }
@@ -970,31 +1201,23 @@ I love you so much! 💕`;
 
         setTimeout(() => {
           if (!lilinPadam) {
-            document.getElementById("wish-status").innerHTML = "🔒 SESI 1: Tiup kencang persis di depan mikrofon!";
+            document.getElementById("wish-status").innerHTML = "🔒 <b>SESI 1</b>: Tiup kencang ke mikrofon atau TAP KUE 3x!";
           }
-        }, 1500);
+        }, 1200);
 
         function deteksiTiupanStrict() {
           if (lilinPadam) return;
-
           analyser.getByteFrequencyData(dataArray);
           
           let windSum = 0;
-          for (let i = 0; i <= 2; i++) {
-            windSum += dataArray[i];
-          }
+          for (let i = 0; i <= 2; i++) { windSum += dataArray[i]; }
           let avgWind = windSum / 3;
 
           let noiseSum = 0;
-          for (let i = 15; i < 120; i++) {
-            noiseSum += dataArray[i];
-          }
+          for (let i = 15; i < 120; i++) { noiseSum += dataArray[i]; }
           let avgNoise = noiseSum / 105;
 
-          const flame = document.getElementById("flame");
-          const status = document.getElementById("wish-status");
-
-          let isRealBlow = (avgWind > 110) && (avgWind > avgNoise * 3);
+          let isRealBlow = (avgWind > 105) && (avgWind > avgNoise * 2.8);
 
           if (isRealBlow && !isTransitioning) {
             blowCounter++;
@@ -1002,23 +1225,13 @@ I love you so much! 💕`;
             blowCounter = Math.max(0, blowCounter - 1);
           }
 
-          if (blowCounter >= 8 && !isTransitioning) {
+          if (blowCounter >= 7 && !isTransitioning) {
             blowCounter = 0;
             isTransitioning = true;
+            
+            prosesHembusanAtauTap();
 
-            if (currentSession === 1) {
-              currentSession = 2;
-              flame.className = "flame flame-shake-1";
-              status.innerHTML = "🌬️ SESI 1 BERHASIL! Sekarang tiup kencang lagi untuk SESI 2!";
-              setTimeout(() => { isTransitioning = false; }, 1500);
-            } else if (currentSession === 2) {
-              currentSession = 3;
-              flame.className = "flame flame-shake-2";
-              status.innerHTML = "🔥 SESI 2 BERHASIL! Sekali tiupan kencang lagi untuk MEMADAMKAN!";
-              setTimeout(() => { isTransitioning = false; }, 1500);
-            } else if (currentSession === 3) {
-              padamkanLilin();
-            }
+            setTimeout(() => { isTransitioning = false; }, 1200);
           }
 
           requestAnimationFrame(deteksiTiupanStrict);
@@ -1026,10 +1239,10 @@ I love you so much! 💕`;
 
         setTimeout(() => {
           deteksiTiupanStrict();
-        }, 1500);
+        }, 1200);
 
       } catch (err) {
-        document.getElementById("wish-status").innerHTML = "🔥 (Klik kuenya untuk memadamkan lilin)";
+        document.getElementById("wish-status").innerHTML = "⚠️ Mikrofon tidak terdeteksi/diizin.<br>👇 <b>Silakan TAP / KLIK KUE di atas 3 kali!</b>";
       }
     }
 
@@ -1037,14 +1250,12 @@ I love you so much! 💕`;
        9. NAVIGASI SEKSI & ANIMASI KETIK SURAT
        =================================================== */
     function keSeksi3() {
-      document.getElementById("section2").classList.add("hidden");
-      document.getElementById("section3").classList.remove("hidden");
+      gantiSeksi("section2", "section3");
       tampilKategori('foto'); 
     }
 
     function keSeksi4() {
-      document.getElementById("section3").classList.add("hidden");
-      document.getElementById("section4").classList.remove("hidden");
+      gantiSeksi("section3", "section4");
       mulaiMengetik();
     }
 
@@ -1052,9 +1263,8 @@ I love you so much! 💕`;
       let index = 0;
       const targetElement = document.getElementById("typed-text");
       const letterBox = document.getElementById("letter-container");
-
       targetElement.innerHTML = "";
-
+      
       function ketik() {
         if (index < suratTeks.length) {
           targetElement.innerHTML += suratTeks.charAt(index);
@@ -1066,7 +1276,6 @@ I love you so much! 💕`;
           letterBox.scrollTop = letterBox.scrollHeight;
         }
       }
-
       ketik();
     }
 
